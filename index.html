@@ -83,7 +83,7 @@
             <option value="sf">少妇</option>
         </select>
         <div class="image-container">
-            <img id="clothingImage" class="question-image" src="" alt="预览图会在你选择后出现，图片只代表衣物款式不代表真人实物">
+            <img id="clothingImage" class="question-image" src="" alt="预览图会在你选择后出现">
         </div>
     </div>
     <div class="question">
@@ -99,19 +99,7 @@
             <option value="lb">蕾丝镂空白丝</option>
         </select>
         <div class="image-container">
-            <img id="siwaImage" class="question-image" src="" alt="预览图会在你选择后出现，图片只代表衣物款式不代表真人实物">
-        </div>
-    </div>
-    
-    <div class="question">
-        <p>选择SM(注意：pp、夜套餐包含sm)</p>
-        <select id="smChoice">
-            <option value="no">否</option>
-            <option value="light">轻度</option>
-            <option value="medium">中度</option>
-        </select>
-        <div>
-            <img id="zicebiao" src="img/QQ截图20240221162837.jpg" style="height: auto;width: 400px;">
+            <img id="siwaImage" class="question-image" src="" alt="预览图会在你选择后出现">
         </div>
     </div>
     
@@ -123,23 +111,33 @@
             <option value="zb">足爆</option>
         </select>
     </div>
-
+    
+    <div class="question">
+        <p>是否需要COS角色（需要老板自费购买服装）</p>
+        <select id="cos">
+            <option value="yes">是</option>
+            <option value="no">否</option>
+        </select>
+    </div>
+    
     <div class="question">
         <p>选择地点</p>
         <select id="locationChoice">
             <option value="home">上门服务</option>
             <option value="class">教室服务</option>
+            <option value="outside">户外露出做爱</option>
+            <option value="car">车震</option>
         </select>
         
     </div>
     <div class="question">
         <p>选择服务套餐</p>
         <select id="servicePackage">
-            <option value="800">800/p/1小时</option>
-            <option value="1100">1200/pp/2小时</option>\
-            <option value="1500">1500/不限/2小时</option>
-            <option value="2500">2500/包夜（晚10——早8）</option>
-            <option value="4000">4000/包天（具体商订）</option>
+            <option value="800">800米/p/1小时</option>
+            <option value="1200">1200米/pp/2小时</option>\
+            <option value="1500">1500米/不限/2小时</option>
+            <option value="2500">2500米/包夜（晚10——早8）</option>
+            <option value="4000">4000米/包天伴游24小时</option>
         </select>
     </div>
     <button id="submitChoices">提交</button>
@@ -231,18 +229,16 @@
         var choicesSummary = "请长按下面文字并复制：\n";
         var clothingChoice = document.getElementById('clothingChoice').options[document.getElementById('clothingChoice').selectedIndex].text;
         var siwaChoice = document.getElementById('siwaChoice').options[document.getElementById('siwaChoice').selectedIndex].text;
-        var smChoice = document.getElementById('smChoice').options[document.getElementById('smChoice').selectedIndex].text;
         var firstKillMethod = document.getElementById('firstKillMethod').options[document.getElementById('firstKillMethod').selectedIndex].text;
         var locationChoice = document.getElementById('locationChoice').options[document.getElementById('locationChoice').selectedIndex].text;
         var servicePackage = document.getElementById('servicePackage').options[document.getElementById('servicePackage').selectedIndex].text;
-
+        var cos = document.getElementById('cos').options[document.getElementById('cos').selectedIndex].text;
         choicesSummary += "扮演角色: " + clothingChoice + "\n";
         choicesSummary += "丝袜选择: " + siwaChoice + "\n";
-        choicesSummary += "SM选择: " + smChoice + "\n";
         choicesSummary += "首杀玩法: " + firstKillMethod + "\n";
         choicesSummary += "选择地点: " + locationChoice + "\n";
         choicesSummary += "服务套餐: " + servicePackage + "\n";
-
+        choicesSummary += "是否COS: " + cos + "\n";
         alert(choicesSummary);
 
         navigator.clipboard.writeText(choicesSummary).then(function() {
