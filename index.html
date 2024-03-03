@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自助菜单</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background-color: #f2f2f7;
+        background-image: url('img/clothes/背景图.jpeg');
+        background-repeat: repeat;
+        background-size: contain;
+    }
+    .container {
+        max-width: 600px;
+        margin: auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        justify-content: center; /* 水平居中 */
+    }
+    .question {
+        border-bottom: 2px solid #eaeaed;
+        padding: 20px 0;
+        margin: 0 20px;
+    }
+    .question:last-child {
+        border-bottom: none;
+    }
+    .question p {
+        margin: 0;
+        color: #1d1d1f;
+    }
+    select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    .image-container {
+        margin-top: 20px;
+        text-align: center;
+    }
+    .question-image {
+        max-width: 100%;
+        border-radius: 10px;
+        height: 300px;
+    }
+    button {
+        display: block;
+        width: 50%;
+        padding: 10px;
+        margin: 20px auto;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div>
+        <h2 style="text-align:center;">小姨子自助菜单</h2>
+    </div>
+    <div class="question">
+        <p>选择扮演角色</p>
+        <select id="clothingChoice">
+            <option value="ms">秘书</option>
+            <option value="np">女仆</option>
+            <option value="tnl">魔女</option>
+            <option value="sks">日本死库水</option>
+            <option value="wy">魅魔</option>
+            <option value="sf">少妇</option>
+        </select>
+        <div class="image-container">
+            <img id="clothingImage" class="question-image" src="" alt="预览图会在你选择后出现，图片只代表衣物款式不代表真人实物">
+        </div>
+    </div>
+    <div class="question">
+        <p>选择丝袜</p>
+        <select id="siwaChoice">
+            <option value="dh">吊带黑丝</option>
+            <option value="db">吊带白丝</option>
+            <option value="gh">过膝黑丝</option>
+            <option value="gb">过膝白丝</option>
+            <option value="yr">油亮肉丝</option>
+            <option value="yh">油亮黑丝</option>
+            <option value="lh">蕾丝镂空黑丝</option>
+            <option value="lb">蕾丝镂空白丝</option>
+        </select>
+        <div class="image-container">
+            <img id="siwaImage" class="question-image" src="" alt="预览图会在你选择后出现，图片只代表衣物款式不代表真人实物">
+        </div>
+    </div>
+    
+    <div class="question">
+        <p>选择SM(注意：pp、夜套餐包含sm)</p>
+        <select id="smChoice">
+            <option value="no">否</option>
+            <option value="light">轻度</option>
+            <option value="medium">中度</option>
+        </select>
+        <div>
+            <img id="zicebiao" src="img/QQ截图20240221162837.jpg" style="height: auto;width: 400px;">
+        </div>
+    </div>
+    
+    <div class="question">
+        <p>选择首杀玩法(第一次射出方式)</p>
+        <select id="firstKillMethod">
+            <option value="kb">口爆</option>
+            <option value="rb">乳爆</option>
+            <option value="zb">足爆</option>
+        </select>
+    </div>
+
+    <div class="question">
+        <p>选择地点</p>
+        <select id="locationChoice">
+            <option value="home">上门服务</option>
+            <option value="class">教室服务</option>
+        </select>
+        
+    </div>
+    <div class="question">
+        <p>选择服务套餐</p>
+        <select id="servicePackage">
+            <option value="800">800/p/1小时</option>
+            <option value="1100">1200/pp/2小时</option>\
+            <option value="1500">1500/不限/2小时</option>
+            <option value="2500">2500/包夜（晚10——早8）</option>
+            <option value="4000">4000/包天（具体商订）</option>
+        </select>
+    </div>
+    <button id="submitChoices">提交</button>
+    <div>
+        <p style="color: red;">选择完成后请将当前页面截图发送给老师哦。</p>
+    </div>
+    
+</div>
+<div class="disclaimer">
+    <p style="text-align:center; margin-top:20px; color: #999;">
+        预约页面，不提供任何实际服务。请勿将本页面内容用于非法用途。如需商务合作请联系电报：@justnoob16  https://t.me/justnoob16 
+    </p>
+</div>
+<script>
+    document.getElementById('clothingChoice').addEventListener('change', function() {
+        var imagePath = '';
+        switch (this.value) {
+            case 'ms':
+                imagePath = 'img/clothes/秘书2.jpeg'; 
+                break;
+            case 'np':
+                imagePath = 'img/clothes/女仆3.jpeg'; 
+                break;
+            case 'tnl':
+                imagePath = 'img/clothes/黑魔2.jpeg'; 
+                break;
+            case 'sks':
+                imagePath = 'img/clothes/秘书4.jpeg'; 
+                break;
+            case 'wy':
+                imagePath = 'img/clothes/夜魔.jpeg'; 
+                break;
+            case 'sf':
+                imagePath = 'img/clothes/小妈2.jpeg'; 
+                break;
+            default:
+                imagePath = ''; 
+                break;
+        }
+        document.getElementById('clothingImage').src = imagePath;
+        document.getElementById('clothingImage').alt = this.options[this.selectedIndex].text;
+    });
+    document.getElementById('siwaChoice').addEventListener('change', function() {
+        var imagePath = '';
+        switch (this.value) {
+            case 'dh':
+                imagePath = 'img/sewat/吊带黑丝.jpeg'; 
+                break;
+
+            case 'db':
+                imagePath = 'img/sewat/吊带白丝.jpeg'; 
+                break;
+
+            case 'gh':
+                imagePath = 'img/sewat/过膝黑.jpeg'; 
+                break;
+
+            case 'gb':
+                imagePath = 'img/sewat/过膝白.jpeg'; 
+                break;
+
+            
+            case 'yh':
+                imagePath = 'img/sewat/油黑.jpeg'; 
+                break;
+            
+            case 'yb':
+                imagePath = 'img/sewat/油白.jpeg'; 
+                break;
+
+            case 'lh':
+                imagePath = 'img/sewat/黑蕾丝.jpeg'; 
+                break;
+
+            case 'lb':
+                imagePath = 'img/sewat/白蕾丝.jpeg'; 
+                break;
+                
+            
+            default:
+                imagePath = ''; 
+                break;
+        }
+        document.getElementById('siwaImage').src = imagePath;
+        document.getElementById('siwaImage').alt = this.options[this.selectedIndex].text;
+    });
+    
+    document.getElementById('submitChoices').addEventListener('click', function() {
+        var choicesSummary = "请长按下面文字并复制：\n";
+        var clothingChoice = document.getElementById('clothingChoice').options[document.getElementById('clothingChoice').selectedIndex].text;
+        var siwaChoice = document.getElementById('siwaChoice').options[document.getElementById('siwaChoice').selectedIndex].text;
+        var smChoice = document.getElementById('smChoice').options[document.getElementById('smChoice').selectedIndex].text;
+        var firstKillMethod = document.getElementById('firstKillMethod').options[document.getElementById('firstKillMethod').selectedIndex].text;
+        var locationChoice = document.getElementById('locationChoice').options[document.getElementById('locationChoice').selectedIndex].text;
+        var servicePackage = document.getElementById('servicePackage').options[document.getElementById('servicePackage').selectedIndex].text;
+
+        choicesSummary += "扮演角色: " + clothingChoice + "\n";
+        choicesSummary += "丝袜选择: " + siwaChoice + "\n";
+        choicesSummary += "SM选择: " + smChoice + "\n";
+        choicesSummary += "首杀玩法: " + firstKillMethod + "\n";
+        choicesSummary += "选择地点: " + locationChoice + "\n";
+        choicesSummary += "服务套餐: " + servicePackage + "\n";
+
+        alert(choicesSummary);
+
+        navigator.clipboard.writeText(choicesSummary).then(function() {
+            alert('选择摘要已复制到剪贴板');
+        }, function(err) {
+            console.error('无法复制文本: ', err);
+        });
+    });
+</script>
+</body>
+</html>
